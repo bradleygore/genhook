@@ -13,5 +13,5 @@ if (command === 'installer') {
 } else if (validHooks.indexOf(command.toLowerCase()) > -1) {
     genhook.generateHook(argv);
 } else {
-    console.log(chalk.red(`\nThe supplied command '${command}' is not valid.\n`));
+    console.log(chalk.red(`The supplied command '${command}' is not valid.`));
 }
