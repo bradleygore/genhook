@@ -1,0 +1,20 @@
+genhook (<hook-name>|installer) [opts]
+
+Commands:
+  installer           Generate a gulp task that will install all of the git hooks that have been generated and saved into your repository
+  pre-commit          Hook that runs at the beginning of a commit, even before a message is added
+  prepare-commit-msg  Hook that runs before the message editor is fired up, but after default message created
+  commit-msg          Hook that runs after message is populated and saved to temp file
+  post-commit         Hook that runs at the end of a commit after it has finished
+  completion          generate bash completion script
+
+Options:
+  -d, --dest            Relative destination path for the generated hooks to be put into if saving to your repository for team use
+  -r, --taskRunnerRoot  Relative Path to your task runner sourcefile - i.e. path to gulpfile.js - defaults to CWD from where genhook command is ran.
+  -t, --tasks           What task(s) to call from the git hook  [array] [required]
+  -w, --windows         Include bash script to support using windows  [boolean] [default: false]
+  --help                Show help  [boolean]
+
+Examples:
+  genhook pre-commit -d ../../git-hooks/ -r ../src/ -t pc-lint pc-test -w false
+

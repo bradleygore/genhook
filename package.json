@@ -19,8 +19,9 @@
     "genhook": "bin/genHook.js"
   },
   "scripts": {
+    "coveralls": "lab -r lcov | coveralls",
     "pretest": "jscs *.js bin/*.js util/*.js genhook/**/*.js && gulp lint",
-    "test": ""
+    "test": "lab test/*.js -cv"
   },
   "keywords": [
     "git",
@@ -35,9 +36,13 @@
     "yargs": "^3.30.0"
   },
   "devDependencies": {
+    "code": "^2.1.0",
+    "coveralls": "^2.11.6",
+    "fs-extra": "^0.26.4",
     "gulp": "^3.9.0",
     "gulp-eslint": "^1.1.1",
-    "jscs": "^2.8.0"
+    "jscs": "^2.8.0",
+    "lab": "^8.2.0"
   },
   "jscsConfig": {
     "preset": "google",
