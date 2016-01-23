@@ -15,6 +15,13 @@ module.exports = hookProps => {
         saveToRepo = !!hookProps.dest,
         inRepoRoot;
 
+    if (path.isAbsolute(taskRunnerRoot) || path.isAbsolute(hookProps.dest)) {
+        logger.error('Destination and Repository Root paths should be relative to where you are calling GenHook from ' +
+            '(the root of your repository).'
+        );
+        return;
+    }
+
     try {
         fs.statSync(path.resolve('.git'));
         inRepoRoot = true;

@@ -19,9 +19,9 @@
     "genhook": "bin/genHook.js"
   },
   "scripts": {
-    "coveralls": "lab test/*.js -r lcov | ./node_modules/coveralls/bin/coveralls.js",
+    "coveralls": "lab -r lcov | ./node_modules/coveralls/bin/coveralls.js",
     "pretest": "jscs *.js bin/*.js util/*.js genhook/**/*.js && gulp lint",
-    "test": "lab test/*.js -cv"
+    "test": "lab -cv"
   },
   "keywords": [
     "git",

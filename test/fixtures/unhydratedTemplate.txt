@@ -1,0 +1,5 @@
+There once was a task named ${TASK_NAME}
+Who had a hook named ${HOOK_NAME}
+They happily lived at ${HOOKS_PATH_BASE} ${HOOKS_PATH}
+
+Task, ${TASK_NAME}, and hook, ${HOOK_NAME}, are quite ${TASK_RUNNER_ARGS}
