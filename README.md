@@ -83,6 +83,7 @@ If you created hooks and saved them to your repository, then Genhook can create 
 -----------------------------------------------------
 
 ##WIP##
+* Finish testing on Windows environment (development done in linux)
 * Unit Tests
 * Support for more task-runners than just gulp - would like to support grunt also
 

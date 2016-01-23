@@ -19,7 +19,8 @@
     "genhook": "bin/genHook.js"
   },
   "scripts": {
-    "pretest": "jscs *.js bin/*.js util/*.js genhook/**/*.js && gulp lint"
+    "pretest": "jscs *.js bin/*.js util/*.js genhook/**/*.js && gulp lint",
+    "test": ""
   },
   "keywords": [
     "git",
