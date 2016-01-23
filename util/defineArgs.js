@@ -59,7 +59,8 @@ hooks.forEach(h => argv.command(h.name, h.abt));
 argv.options({
     'd': {
         alias: 'dest',
-        describe: 'Destination path for the generated hooks to be put into if saving to your repository for team use',
+        describe: 'Relative destination path for the generated hooks to be put into if saving to ' +
+            'your repository for team use',
         demand: false
     },
     'r': {
