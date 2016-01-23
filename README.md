@@ -1,3 +1,5 @@
+[![Build Status][travis-image]][travis-url]
+
 # genhook
 Git Hook Generator - easily incorporate [git hooks](http://githooks.com/) into your, and your team's, front end workflow!
 
@@ -83,3 +85,10 @@ If you created hooks and saved them to your repository, then Genhook can create 
 ##WIP##
 * Unit Tests
 * Support for more task-runners than just gulp - would like to support grunt also
+
+
+
+
+
+[travis-url]: https://travis-ci.org/bradleygore/genhook
+[travis-image]: http://img.shields.io/travis/bradleygore/genhook.svg
