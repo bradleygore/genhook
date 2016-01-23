@@ -1,0 +1,27 @@
+{
+  "name": "genhook-cli",
+  "version": "0.0.1",
+  "description": "A simple-to-use tool to generate git hooks that wire up to gulp tasks",
+  "preferGlobal": true,
+  "engines": {
+    "node": ">= 4.0"
+  },
+  "bin": {
+    "genhook": "bin/genHook.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "git",
+    "hooks",
+    "git-hooks",
+    "pre-commit"
+  ],
+  "author": "Bradley Gore <bradley@bradleygore.com> (www.blog.bradleygore.com)",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "yargs": "^3.30.0"
+  }
+}

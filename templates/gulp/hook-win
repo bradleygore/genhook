@@ -1,0 +1,22 @@
+#!/bin/sh
+
+#get node version to verify it's installed.  If not, just exit successfully without running the hook.
+NODE_VERSION=$(node -v);
+
+# check to make sure the variable is defined and isn't empty string
+if [ -n "$NODE_VERSION" ]; then
+    # Get full directory of this script file instead of PWD and add /${HOOK_NAME}-js to it
+    HOOK_SCRIPT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/${HOOK_NAME}-js;
+
+    # Have node execute the file
+    $(node $HOOK_SCRIPT);
+
+    # $? holds exit code of *last executed command* - trickster b/c even an echo command changes its value
+    HOOK_STATUS=$?;
+
+    # exit with the status that the node script exited with
+    exit $HOOK_STATUS;
+else
+    # 0 is success, anything else is error and will prevent the commit
+    exit 0;
+fi
