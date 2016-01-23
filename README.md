@@ -1,4 +1,4 @@
-[![Build Status][travis-image]][travis-url]
+[![Build Status][travis-image]][travis-url]  [![Coverage Status](https://coveralls.io/repos/github/bradleygore/genhook/badge.svg?branch=master)](https://coveralls.io/github/bradleygore/genhook?branch=master)
 
 # genhook
 Git Hook Generator - easily incorporate [git hooks](http://githooks.com/) into your, and your team's, front end workflow!
