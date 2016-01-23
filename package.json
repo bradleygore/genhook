@@ -19,7 +19,7 @@
     "genhook": "bin/genHook.js"
   },
   "scripts": {
-    "coveralls": "lab -r lcov | coveralls",
+    "coveralls": "lab test/*.js -r lcov | ./node_modules/coveralls/bin/coveralls.js",
     "pretest": "jscs *.js bin/*.js util/*.js genhook/**/*.js && gulp lint",
     "test": "lab test/*.js -cv"
   },
