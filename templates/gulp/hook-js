@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+'use strict';
+
+var spawn = require('child_process').spawn,
+    gulp = (process.platform === 'win32' ? 'gulp.cmd' : 'gulp'),
+    path = require('path'),
+    cwd = ${TASK_RUNNER_ROOT}, //no problem if undefined, defaults to cwd if so
+    tasks = ${TASK_RUNNER_ARGS};
+
+var hook = spawn(gulp, [tasks], {
+    stdio: 'inherit',
+    cwd: cwd
+});
+
+hook.on('close', code => process.exit(code));
+
+// catch exceptions so node doesn't exit prematurely, leaving a runaway process
+process.on('uncaughtException', err => {
+    console.error('Uncaught ${HOOK_NAME} Exception', err.stack);
+    //http://www.gnu.org/software/libc/manual/html_node/Termination-Signals.html
+    hook.kill('SIGTERM');
+    process.exit(1);
+});
