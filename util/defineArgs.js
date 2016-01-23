@@ -24,7 +24,8 @@ var argv = require('yargs')
     .usage('genhook (<hook-name>|installer) [opts]')
     .showHelpOnFail(false, 'Specify --help for available options')
     .command('installer',
-        'Generate a gulp task that will install all of the git hooks that have been generated and saved into your repository',
+        'Generate a gulp task that will install all of the git hooks ' +
+        'that have been generated and saved into your repository',
         yargs => {
             argv = yargs.options({
                 'd': {
@@ -48,7 +49,8 @@ var argv = require('yargs')
                     default: 'install-git-hooks'
                 }
             })
-            .example('genhook installer -d ../gulp-tasks/ -h ../../git-hooks/ -n git-hook-installer.js -t installGitHooks')
+            .example('genhook installer -d ../gulp-tasks/ -h ../../git-hooks/ ' +
+                '-n git-hook-installer.js -t installGitHooks')
             .help('help');
         });
 
@@ -62,7 +64,8 @@ argv.options({
     },
     'r': {
         alias: 'taskRunnerRoot',
-        describe: 'Relative Path to your task runner sourcefile - i.e. path to gulpfile.js - defaults to CWD from where genhook command is ran.',
+        describe: 'Relative Path to your task runner sourcefile - i.e. path to gulpfile.js - ' +
+            'defaults to CWD from where genhook command is ran.',
         demand: false
     },
     't': {

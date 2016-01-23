@@ -10,7 +10,8 @@ module.exports = hookProps => {
     let taskRunnerArgs = hookProps.tasks,
         taskRunnerRoot = hookProps.taskRunnerRoot,
         hookName = hookProps._[0].toLowerCase(),
-        includeWindows = process.platform === 'win32' || hookProps.windows,
+        isInWindows = process.platform === 'win32',
+        includeWindows = isInWindows || hookProps.windows,
         saveToRepo = !!hookProps.dest,
         inRepoRoot;
 
@@ -70,7 +71,7 @@ module.exports = hookProps => {
         }
 
         if (inRepoRoot) {
-            let fileName = hookName + (includeWindows ? '-js' : '');
+            let fileName = hookName + (isInWindows ? '-js' : '');
             logger.updateStatus(`Saving ${fileName} script to /.git/hooks/ directory`);
             fs.writeFile(path.resolve('.git', 'hooks', fileName), template, (err) => {
                 if (err) {
@@ -117,7 +118,7 @@ module.exports = hookProps => {
                 });
             }
 
-            if (inRepoRoot) {
+            if (inRepoRoot && isInWindows) {
                 logger.updateStatus(`Saving ${hookName} script to /.git/hooks/ directory`);
                 fs.writeFile(path.resolve('.git/hooks/', hookName), template, (err) => {
                     if (err) {

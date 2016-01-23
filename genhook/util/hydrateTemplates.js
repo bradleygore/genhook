@@ -1,7 +1,7 @@
 var placeholders = require('./placeholders');
 
 module.exports = (string, replacements) => {
-    "use strict";
+    'use strict';
 
     Object.keys(placeholders)
         .forEach(placeholder => {

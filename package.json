@@ -19,7 +19,7 @@
     "genhook": "bin/genHook.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "jscs *.js bin/*.js util/*.js genhook/**/*.js && gulp lint"
   },
   "keywords": [
     "git",
@@ -32,5 +32,19 @@
   "dependencies": {
     "chalk": "^1.1.1",
     "yargs": "^3.30.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^1.1.1",
+    "jscs": "^2.8.0"
+  },
+  "jscsConfig": {
+    "preset": "google",
+    "validateIndentation": 4,
+    "disallowMultipleVarDecl": null,
+    "maximumLineLength": {
+      "value": 120,
+      "allowComments": true
+    }
   }
 }
