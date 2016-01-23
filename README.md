@@ -6,7 +6,7 @@ Git Hook Generator - easily incorporate [git hooks](http://githooks.com/) into y
 ##Installation##
 
 ```bash
-> npm install -g genhook
+> npm install -g genhook-cli
 ```
 
 ##Usage##
