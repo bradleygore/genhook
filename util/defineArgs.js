@@ -67,7 +67,8 @@ argv.options({
         alias: 'taskRunnerRoot',
         describe: 'Relative Path to your task runner sourcefile - i.e. path to gulpfile.js - ' +
             'defaults to CWD from where genhook command is ran.',
-        demand: false
+        demand: false,
+        default: './'
     },
     't': {
         alias: 'tasks',
