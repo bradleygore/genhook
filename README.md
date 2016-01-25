@@ -1,15 +1,15 @@
 [![Build Status][travis-image]][travis-url]  [![Coverage Status](https://coveralls.io/repos/github/bradleygore/genhook/badge.svg?branch=master)](https://coveralls.io/github/bradleygore/genhook?branch=master)
 
-# genhook
+#genhook
 Git Hook Generator - easily incorporate [git hooks](http://githooks.com/) into your, and your team's, front end workflow!
 
-##Installation##
+##Installation
 
 ```bash
 > npm install -g genhook-cli
 ```
 
-##Usage##
+##Usage
 
 * Navigate to the root of any git repo
 
@@ -17,18 +17,18 @@ Git Hook Generator - easily incorporate [git hooks](http://githooks.com/) into y
 > genhook (<git-hook>|installer) [flags]
 ```
 
-##Git Hooks##
+##Git Hooks
 Genhook focuses on client hooks - i.e. those that would run on the developer's box as opposed to a server.
 Generating a hook is simple - just call genhook with the name of the git hook you want generated, and provide a few options!
 
-####Valid Hooks####
+####Valid Hooks
 
 * *pre-commit* - runs at the beginning of a commit, even before a message is added
 * *prepare-commit-msg* - runs before the message editor is fired up, but after default message created
 * *commit-msg* - runs after message is populated and saved to temp file
 * *post-commit* - runs at the end of a commit after it has finished
 
-####Git Hook Flags####
+####Git Hook Flags
 
 | Flag | Short Flag | Description | Required |
 |------|------------|-------------|----------|
@@ -39,7 +39,7 @@ Generating a hook is simple - just call genhook with the name of the git hook yo
 
 If you use the `-d` flag to save the generated hooks to your codebase, then an install script can be generated to allow others on the team to easily utilize the same hooks!
 
-####Git Hook Example####
+####Git Hook Example
 
 ```bash
 > cd path/to/repo/root
@@ -53,7 +53,7 @@ If you use the `-d` flag to save the generated hooks to your codebase, then an i
 #  ./git-hooks/pre-commit-pre-commit-win (sh script to be used when installing on windows - calls nodejs script when executed)
 ```
 
-##Installer##
+##Installer
 
 If you created hooks and saved them to your repository, then Genhook can create a handy installer script that anyone on your team can use to install the hooks in their environments.
 
@@ -61,7 +61,7 @@ If you created hooks and saved them to your repository, then Genhook can create 
 > genhook installer [flags]
 ```
 
-####Installer Flags####
+####Installer Flags
 
 | Flag | Short Flag | Description | Required |
 |------|------------|-------------|----------|
@@ -70,7 +70,7 @@ If you created hooks and saved them to your repository, then Genhook can create 
 | name | -n | What to name the generated file - i.e. install-git-hooks.js | N - defaults to installGitHooks.js |
 | taskName | -t | What to name the gulp task that will perform the hooks install | N - defaults to install-git-hooks |
 
-####Installer Examples####
+####Installer Examples
 ```bash
 > cd path/to/repo/root
 
@@ -82,16 +82,14 @@ If you created hooks and saved them to your repository, then Genhook can create 
 
 -----------------------------------------------------
 
-##WIP##
+##WIP
 * Finish testing on Windows environment (development done in linux)
 * Unit Tests
 * Support for more task-runners than just gulp - would like to support grunt also
 
-##Acknowledgements##
+##Acknowledgements
 
 Heavily borrowed architecture and testing setup from the excellent [gulp-cli](https://github.com/gulpjs/gulp-cli)
-
-
 
 [travis-url]: https://travis-ci.org/bradleygore/genhook
 [travis-image]: http://img.shields.io/travis/bradleygore/genhook.svg
