@@ -64,13 +64,22 @@ var argv = yargs
                     type: 'string',
                     default: 'installGitHooks.js'
                 },
+                'r': {
+                    alias: 'taskRunnerRoot',
+                    describe: 'Relative Path to your task runner sourcefile - i.e. path to gulpfile.js - ' +
+                    'defaults to CWD from where genhook command is ran.',
+                    demand: false,
+                    default: './'
+                },
                 't': {
                     alias: 'taskName',
                     describe: 'What you want the task to be named',
+                    demand: false,
                     type: 'string',
                     default: 'install-git-hooks'
                 }
             })
+            .epilog('* Generated installer gulp task will require gulp-chmod and gulp-rename modules')
             .example('genhook installer -d ../gulp-tasks/ -h ../../git-hooks/ ' +
                 '-n git-hook-installer.js -t installGitHooks')
             .help('help');

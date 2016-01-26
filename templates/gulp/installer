@@ -1,17 +1,18 @@
 var gulp = require('gulp'),
+    path = require('path'),
     chmod = require('gulp-chmod'),
     rename = require('gulp-rename');
 
 gulp.task('${TASK_NAME}', function () {
 
     if (/win/.test(process.platform)) {
-        return gulp.src(['${HOOKS_PATH}/*-win', '${HOOKS_PATH}/*-js'], {base: '${HOOKS_PATH_BASE}'})
+        return gulp.src([path.join('${HOOKS_PATH}', '**', '*-win'), path.join('${HOOKS_PATH}', '**', '/*-js')], {base: '${HOOKS_PATH_BASE}'})
             .pipe(rename(function fixName(path) {
                 path.basename = path.basename.replace('-win', '');
             }))
             .pipe(gulp.dest('${REPO_TRUNK_PATH}'));
     } else {
-        return gulp.src('${HOOKS_PATH}/git-hooks/*-js', {base: '${HOOKS_PATH_BASE}'})
+        return gulp.src('${HOOKS_PATH}/**/*-js', {base: '${HOOKS_PATH_BASE}'})
             .pipe(rename(function fixName(path) {
                 path.basename = path.basename.replace('-js', '');
             }))

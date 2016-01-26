@@ -49,7 +49,7 @@ module.exports = hookProps => {
         try {
             fs.statSync(path.resolve(hookProps.dest));
         } catch(e) {
-            fs.mkdirsSync(path.resolve(hookProps.dest));
+            fs.mkdirpSync(path.resolve(hookProps.dest));
         }
     }
 

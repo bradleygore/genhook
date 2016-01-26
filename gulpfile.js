@@ -9,3 +9,5 @@ gulp.task('lint', () => {
 });
 
 gulp.task('default', ['lint']);
+
+require('./git-utils/installGitHooks.js');
