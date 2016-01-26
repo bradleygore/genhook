@@ -30,7 +30,8 @@ var argv = yargs
     .fail(msg => {
         var hasCmd = process.argv.length > 1;
         if (!hasCmd) {
-            console.error(chalk.red('Missing Command: '), `please use ${chalk.bold.cyan('genhook --help')} to see help and usage info.`);
+            console.error(chalk.red('Missing Command: '),
+                `please use ${chalk.bold.cyan('genhook --help')} to see help and usage info.`);
         } else {
             console.error(msg);
         }

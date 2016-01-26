@@ -9,8 +9,9 @@ Commands:
   completion          generate bash completion script
 
 Options:
+  -v, --version         Show version number  [boolean]
   -d, --dest            Relative destination path for the generated hooks to be put into if saving to your repository for team use
-  -r, --taskRunnerRoot  Relative Path to your task runner sourcefile - i.e. path to gulpfile.js - defaults to CWD from where genhook command is ran.
+  -r, --taskRunnerRoot  Relative Path to your task runner sourcefile - i.e. path to gulpfile.js - defaults to CWD from where genhook command is ran.  [default: "./"]
   -t, --tasks           What task(s) to call from the git hook  [array] [required]
   -w, --windows         Include bash script to support using windows  [boolean] [default: false]
   --help                Show help  [boolean]
