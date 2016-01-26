@@ -1,6 +1,6 @@
 {
   "name": "genhook-cli",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A simple-to-use tool to generate git hooks that wire up to gulp tasks",
   "repository": "bradleygore/genhook",
   "preferGlobal": true,

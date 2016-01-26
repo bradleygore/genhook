@@ -15,10 +15,15 @@ module.exports = hookProps => {
         saveToRepo = !!hookProps.dest,
         inRepoRoot;
 
-    if (path.isAbsolute(taskRunnerRoot) || path.isAbsolute(hookProps.dest)) {
+    if (path.isAbsolute(taskRunnerRoot) || (saveToRepo && path.isAbsolute(hookProps.dest))) {
         logger.error('Destination and Repository Root paths should be relative to where you are calling GenHook from ' +
             '(the root of your repository).'
         );
+        return;
+    }
+
+    if (taskRunnerArgs.length === 0) {
+        logger.error('Task Runner Arguments are missing.');
         return;
     }
 
