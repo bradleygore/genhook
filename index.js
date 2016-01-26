@@ -8,10 +8,16 @@ const validHooks = argsUtil.supportedHooks;
 const genhook = require('./genhook');
 const command = argv._[0];
 
-if (command === 'installer') {
-    genhook.install(argv);
-} else if (validHooks.indexOf(command.toLowerCase()) > -1) {
-    genhook.generateHook(argv);
-} else {
-    console.log(chalk.red(`The supplied command '${command}' is not valid.`));
+if (argv.version) {
+    console.log(require('./package.json').version);
+}
+
+if (command) {
+    if (command === 'installer') {
+        genhook.install(argv);
+    } else if (validHooks.indexOf(command.toLowerCase()) > -1) {
+        genhook.generateHook(argv);
+    } else {
+        console.log(chalk.red(`The supplied command '${command}' is not valid.`));
+    }
 }

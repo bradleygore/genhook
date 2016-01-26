@@ -76,6 +76,12 @@ argv.options({
         demand: true,
         type: 'array'
     },
+    'v': {
+        alias: 'version',
+        describe: 'Print current version of genhook-cli',
+        default: false,
+        type: 'boolean'
+    },
     'w': {
         alias: 'windows',
         describe: 'Include bash script to support using windows',
