@@ -28,7 +28,7 @@ var argv = yargs
     .describe('v', 'Show the current version of genhook-cli')
     .showHelpOnFail(false, 'Specify --help for available options')
     .fail(msg => {
-        var hasCmd = process.argv.length > 1;
+        var hasCmd = process.argv.length > 2;
         if (!hasCmd) {
             console.error(chalk.red('Missing Command: '),
                 `please use ${chalk.bold.cyan('genhook --help')} to see help and usage info.`);
