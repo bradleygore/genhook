@@ -1,5 +1,5 @@
 const path = require('path');
-const fs = require('fs');
+const fs = require('fs-extra');
 const placeholders = require('./util/placeholders');
 const hydrateTemplate = require('./util/hydrateTemplates');
 const logger = require('./util/logger');
@@ -47,7 +47,7 @@ module.exports = installerProps => {
 
             fs.stat(path.resolve(destDir), function(err) {
                 if (err) {
-                    fs.mkdirSync(path.resolve(destDir));
+                    fs.mkdirsSync(path.resolve(destDir));
                 }
 
                 fs.writeFile(path.resolve(destDir, fileName), template, (err) => {

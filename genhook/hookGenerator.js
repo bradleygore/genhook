@@ -1,5 +1,5 @@
 const path = require('path');
-const fs = require('fs');
+const fs = require('fs-extra');
 const placeholders = require('./util/placeholders');
 const hydrateTemplate = require('./util/hydrateTemplates');
 const logger = require('./util/logger');
@@ -49,7 +49,7 @@ module.exports = hookProps => {
         try {
             fs.statSync(path.resolve(hookProps.dest));
         } catch(e) {
-            fs.mkdirSync(path.resolve(hookProps.dest));
+            fs.mkdirsSync(path.resolve(hookProps.dest));
         }
     }
 
