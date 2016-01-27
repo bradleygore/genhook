@@ -1,4 +1,4 @@
-[![Build Status][travis-image]][travis-url]  [![Coverage Status](https://coveralls.io/repos/github/bradleygore/genhook/badge.svg?branch=master)](https://coveralls.io/github/bradleygore/genhook?branch=master)
+[![NPM version][npm-image]][npm-url]  [![Build Status][travis-image]][travis-url]  [![Coverage Status][coveralls-img]][coveralls-url]
 
 #genhook
 Git Hook Generator - easily incorporate [git hooks](http://githooks.com/) into your, and your team's, front end workflow!
@@ -18,7 +18,10 @@ Git Hook Generator - easily incorporate [git hooks](http://githooks.com/) into y
 ```
 
 ##Git Hooks
-Genhook focuses on client hooks - i.e. those that would run on the developer's box as opposed to a server.
+Genhook focuses on client hooks (i.e. those that would run on the developer's box as opposed to a server).
+Genhook's approach to git hooks is to simply tie them right into the task-runner that already knows how to lint files, etc... Simply using the hook to execute one/more task for your runner to execute!
+*Currently, gulp is the only supported task runner.*
+
 Generating a hook is simple - just call genhook with the name of the git hook you want generated, and provide a few options!
 
 ####Valid Hooks
@@ -52,6 +55,8 @@ If you use the `-d` flag to save the generated hooks to your codebase, then an i
 #  ./git-hooks/pre-commit/pre-commit-js (nodejs script)
 #  ./git-hooks/pre-commit-pre-commit-win (sh script to be used when installing on windows - calls nodejs script when executed)
 ```
+*For a more in-depth example of using git hooks + task runner to do cool stuff (such as lint only the files being committed), check out [this demo](https://github.com/bradleygore/pre-commit-demo).*
+
 
 ##Installer
 
@@ -67,7 +72,8 @@ If you created hooks and saved them to your repository, then Genhook can create 
 |------|------------|-------------|----------|
 | dest | -d | Relative destination path for the generated installer script | Y - i.e. gulp-tasks/ |
 | hooks | -h | Relative path to directory holding Genhook-generated hook scripts | Y - i.e. git-hooks/ |
-| name | -n | What to name the generated file - i.e. install-git-hooks.js | N - defaults to installGitHooks.js |
+| name | -n | What to name the generated file - i.e. hookInstaller.js | N - defaults to installGitHooks.js |
+| taskRunnerRoot | -r | Relative path to your task runner main file - i.e. path to gulpfile.js | N - defaults to CWD |
 | taskName | -t | What to name the gulp task that will perform the hooks install | N - defaults to install-git-hooks |
 
 ####Installer Examples
@@ -80,16 +86,19 @@ If you created hooks and saved them to your repository, then Genhook can create 
 # When that gulp task is ran, it will install all hooks from ./git-hooks/ into ./.git/hooks and automatically handle windows vs *nix
 ```
 
------------------------------------------------------
-
 ##WIP
-* Finish testing on Windows environment (development done in linux)
-* Unit Tests
+* Add in support for remaining client git hooks
 * Support for more task-runners than just gulp - would like to support grunt also
 
 ##Acknowledgements
 
 Heavily borrowed architecture and testing setup from the excellent [gulp-cli](https://github.com/gulpjs/gulp-cli)
 
+[npm-url]: https://npmjs.org/package/genhook-cli
+[npm-image]: http://img.shields.io/npm/v/genhook-cli.svg
+
 [travis-url]: https://travis-ci.org/bradleygore/genhook
 [travis-image]: http://img.shields.io/travis/bradleygore/genhook.svg
+
+[coveralls-url]: https://coveralls.io/github/bradleygore/genhook?branch=master
+[coveralls-img]: https://coveralls.io/repos/github/bradleygore/genhook/badge.svg?branch=master
