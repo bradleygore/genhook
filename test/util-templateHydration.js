@@ -14,8 +14,7 @@ let templateVars = {};
 lab.experiment('Template Hydration', () => {
     templateVars[placeholders.taskName] = 'HOOK';
     templateVars[placeholders.hookName] = 'JACK';
-    templateVars[placeholders.hooksPathBase] = 'PIRATE';
-    templateVars[placeholders.hooksPath] = 'BAY';
+    templateVars[placeholders.hooksPath] = 'PIRATE BAY';
     templateVars[placeholders.taskRunnerArgs] = JSON.stringify(['DASHING', 'ADVENTUROUS']);
     templateVars['unsupportedPlaceholder'] = 'PICKLES';
 

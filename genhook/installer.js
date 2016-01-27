@@ -10,9 +10,6 @@ module.exports = installerProps => {
     let destDir = installerProps.dest,
         generatedHooksPath = installerProps.hooks,
         taskRunnerRootPath = installerProps.taskRunnerRoot,
-        generatedHooksDirName = generatedHooksPath.indexOf(path.sep) > -1 ?
-            generatedHooksPath.split(path.sep).reverse()[0] :
-            generatedHooksPath,
         fileName = installerProps.name,
         taskName = installerProps.taskName,
         templateVars = {};
@@ -22,6 +19,11 @@ module.exports = installerProps => {
             'Destination, Task Runner Root, and Hooks paths should be relative to where you are calling GenHook from (the root of your repository).'
         );
         return;
+    }
+
+    //if provided name doesn't contain .js suffix, populate
+    if (!(/(.*)\.js$/.test(fileName))) {
+        fileName = `${fileName}.js`;
     }
 
     fs.stat(path.resolve('.git'), (err) => {
@@ -39,10 +41,12 @@ module.exports = installerProps => {
             logger.updateStatus('Generating script to install git hooks to local environments.');
 
             let template = buffer.toString();
-            templateVars[placeholders.hooksPath] = path.relative(taskRunnerRootPath, generatedHooksPath);
-            templateVars[placeholders.hooksPathBase] = generatedHooksDirName;
+
+            templateVars[placeholders.hooksPath] = path.relative(taskRunnerRootPath, generatedHooksPath)
+                .replace(/\\/g, '/');
             templateVars[placeholders.taskName] = taskName;
-            templateVars[placeholders.repoTrunkPath] = path.relative(taskRunnerRootPath, '.git/hooks');
+            templateVars[placeholders.repoTrunkPath] = path.relative(taskRunnerRootPath, '.git/hooks')
+                .replace(/\\/g, '/');
 
             template = hydrateTemplate(template, templateVars);
 
